@@ -44,6 +44,7 @@ function handIn(): void {
   }
   const dossier = buildDossier(outputDir, DOSSIER_LIMITS);
   writeFileSync(join(outputDir, 'dossier.json'), dossier);
+  console.log(`handed in: game/ + screenshots/ -> ${outputDir}, dossier.json ${dossier.length} bytes`);
 }
 
 handIn();
