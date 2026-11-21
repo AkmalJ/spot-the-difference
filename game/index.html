@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pasar Perbedaan — Spot the Difference</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <div id="brand">
+      <span id="brand-name">Pasar Perbedaan</span>
+      <span id="scene-name">Night Market</span>
+    </div>
+    <div id="counter" aria-live="polite">
+      <span id="found-count">0 / 10</span>
+      <span id="counter-label">found · <b id="to-go">10</b> to go</span>
+    </div>
+    <div id="progress"><div id="progress-fill"></div></div>
+    <div id="clock" title="Time, including +5s mistake penalties">00:00</div>
+    <div id="hud-buttons">
+      <button id="hint-btn" type="button">Hint (<span id="hints-left">3</span>)</button>
+      <button id="restart-btn" type="button">Restart</button>
+      <button id="menu-btn" type="button">Scenes</button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <figure class="panel" id="panel-a">
+      <svg id="svg-left" viewBox="0 0 600 440" role="img" aria-label="Picture A"></svg>
+      <figcaption>Picture A</figcaption>
+    </figure>
+    <figure class="panel" id="panel-b">
+      <svg id="svg-right" viewBox="0 0 600 440" role="img" aria-label="Picture B"></svg>
+      <figcaption>Picture B — the changed one</figcaption>
+    </figure>
+  </main>
+
+  <p id="toast" role="status" aria-live="polite"></p>
+
+  <section id="title-screen" class="overlay">
+    <div class="card">
+      <h1>Pasar Perbedaan</h1>
+      <p class="tagline">Spot the difference: two pictures, ten quiet changes.</p>
+      <p class="howto">
+        Click a difference on either picture and both get ringed.
+        A wrong click costs +5 seconds. Three hints per scene.
+        Keys: <b>H</b> hint, <b>R</b> restart.
+      </p>
+      <div id="scene-picker">
+        <button type="button" class="scene-choice" data-scene="0">
+          <b>1 · Night Market</b><span>Pasar malam under the string lights</span>
+        </button>
+        <button type="button" class="scene-choice" data-scene="1">
+          <b>2 · Harbor at Dawn</b><span>Pelabuhan pagi, first boats out</span>
+        </button>
+        <button type="button" class="scene-choice" data-scene="2">
+          <b>3 · Mountain Village</b><span>Desa di lereng, laundry day</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="win-overlay" class="overlay hidden">
+    <div class="card">
+      <h1 id="win-title">All 10 found!</h1>
+      <p id="win-scene" class="tagline">Night Market complete</p>
+      <dl id="win-stats">
+        <div><dt>Time</dt><dd id="win-time">00:00</dd></div>
+        <div><dt>Mistakes</dt><dd id="win-mistakes">0</dd></div>
+        <div><dt>Hints used</dt><dd id="win-hints">0</dd></div>
+        <div><dt>Score</dt><dd id="win-score">0</dd></div>
+      </dl>
+      <div class="card-buttons">
+        <button type="button" id="next-btn">Next Scene</button>
+        <button type="button" id="again-btn">Play Again</button>
+        <button type="button" id="win-menu-btn">Scenes</button>
+      </div>
+    </div>
+  </section>
+</div>
+<script type="module" src="./js/game.js"></script>
+</body>
+</html>
